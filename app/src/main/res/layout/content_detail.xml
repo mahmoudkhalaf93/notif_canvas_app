@@ -10,21 +10,15 @@
     tools:context=".DetailActivity"
     tools:showIn="@layout/activity_detail">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_16sdp"
-        android:textSize="@dimen/_16ssp"
-        android:text="click on shape"
-        app:layout_constraintBottom_toTopOf="@+id/motionLayout"
-        tools:layout_editor_absoluteX="21dp" />
+
     <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/motionLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layoutDescription="@xml/scene_01"
         app:layout_constraintBottom_toTopOf="@+id/bb"
         app:layout_constraintTop_toBottomOf="@+id/status"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="21dp"
         tools:showPaths="true">
 
@@ -32,11 +26,13 @@
             android:id="@+id/button"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/ic_assistant_black_24dp"
+            android:src="@drawable/ic_baseline_star_24"
 
-            />
+            tools:layout_editor_absoluteX="124dp"
+            tools:layout_editor_absoluteY="7dp" />
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -52,12 +48,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_32sdp"
-        android:layout_marginTop="@dimen/_16sdp"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/_16ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
         tools:text="@string/glide_text" />
 
     <TextView
@@ -74,11 +69,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_16sdp"
         android:text="@string/status"
         android:textSize="@dimen/_15ssp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/file_name" />
 
     <Button
         android:id="@+id/bb"

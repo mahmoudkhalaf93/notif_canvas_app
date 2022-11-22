@@ -56,13 +56,13 @@ class LoadingButton @JvmOverloads constructor(
 
         xpos = (measuredWidth.toFloat() * 50 / 100)
         canvas?.drawRect(0f,
-            0f,
-            progress.toFloat() / 100 * measuredWidth,
             measuredHeight.toFloat(),
+            progress.toFloat() / 100 * measuredWidth,
+            0f,
             paint.apply { color = resources.getColor(R.color.colorPrimaryDark) })
 
         canvas?.drawArc(
-            RectF(xpos * 1.4f, 30f, xpos * 1.4f + 100, 130f),
+            RectF(xpos * 1.6f, 25f, xpos * 1.6f + 50, 75f),
             0f,
             progress.toFloat() * 360f / 100f,
             true,
@@ -71,7 +71,7 @@ class LoadingButton @JvmOverloads constructor(
 
             }
         )
-        canvas?.drawText(downloadState, xpos, 100f, paint.apply {
+        canvas?.drawText(downloadState, xpos, (measuredHeight/1.5).toFloat(), paint.apply {
             color = resources.getColor(R.color.white)
         })
     }

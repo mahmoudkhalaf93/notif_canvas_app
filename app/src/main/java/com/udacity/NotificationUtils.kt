@@ -35,7 +35,7 @@ private val FLAGS = 0
  *
  * @param context, activity context.
  */
-fun NotificationManager.sendNotification(messageBody: String,repo:String,status : String, applicationContext: Context) {
+fun NotificationManager.sendNotification(repo:String,status : String, applicationContext: Context) {
     // Create the content intent for the notification, which launches
     // this activity
     // TODO: Step 1.11 create intent
@@ -50,6 +50,14 @@ fun NotificationManager.sendNotification(messageBody: String,repo:String,status 
         PendingIntent.FLAG_UPDATE_CURRENT
     )
 
+    // TODO: Step 2.2 add snooze action
+//    val snoozeIntent = Intent(applicationContext, SnoozeReceiver::class.java)
+//    val snoozePendingIntent: PendingIntent = PendingIntent.getBroadcast(
+//        applicationContext,
+//        REQUEST_CODE,
+//        snoozeIntent,
+//        FLAGS)
+
     // TODO: Step 1.2 get an instance of NotificationCompat.Builder
     // Build the notification
     val builder = NotificationCompat.Builder(
@@ -63,12 +71,20 @@ fun NotificationManager.sendNotification(messageBody: String,repo:String,status 
         .setSmallIcon(R.drawable.ic_assistant_black_24dp)
         .setContentTitle(applicationContext
             .getString(R.string.notification_title))
-        .setContentText(messageBody)
+        .setContentText(String.format(applicationContext
+            .getString(R.string.notification_description),status))
 
     // TODO: Step 1.13 set content intent
-        .setContentIntent(contentPendingIntent)
-        .setAutoCancel(true)
+        //.setContentIntent(contentPendingIntent)
+//        .setAutoCancel(true)
 
+
+        // TODO: Step 2.3 add snooze action
+        .addAction(
+            R.drawable.ic_assistant_black_24dp,
+            applicationContext.getString(R.string.notification_button),
+            contentPendingIntent
+        ).setAutoCancel(true)
 
         // TODO: Step 2.5 set priority
         .setPriority(NotificationCompat.PRIORITY_HIGH)
